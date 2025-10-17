@@ -12,6 +12,7 @@ html {
 body {
   background: #f5f7fa;
   color: #333;
+  transition: 0.4s ease;
 }
 
 /* Navbar */
@@ -59,11 +60,45 @@ nav ul li a:hover {
   color: #38bdf8;
 }
 
+/* Dark mode toggle */
+.toggle-container {
+  position: relative;
+  width: 50px;
+  height: 25px;
+}
+.toggle-container input { display: none; }
+.toggle-label {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background: #cbd5e1;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+.toggle-label::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  top: 2.5px;
+  left: 3px;
+  transition: 0.3s;
+}
+input:checked + .toggle-label {
+  background: #38bdf8;
+}
+input:checked + .toggle-label::after {
+  left: 27px;
+}
+
 /* Hero */
 .hero {
   height: 100vh;
-  background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
-              url('https://source.unsplash.com/1600x900/?coding,workspace') center/cover no-repeat;
+  background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), 
+              url('https://source.unsplash.com/1600x900/?coding,workspace') center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,19 +107,16 @@ nav ul li a:hover {
   padding: 0 20px;
 }
 
-.hero-content h2 {
+.hero h2 {
   font-size: 2.8em;
 }
-
-.hero-content span {
+.hero span {
   color: #38bdf8;
 }
-
-.hero-content p {
+.hero p {
   margin: 15px 0;
   max-width: 600px;
 }
-
 .btn {
   padding: 10px 25px;
   background: #38bdf8;
@@ -95,16 +127,22 @@ nav ul li a:hover {
   cursor: pointer;
   transition: 0.3s;
 }
-
 .btn:hover {
   background: #0ea5e9;
 }
 
-/* Sections */
+/* Section */
 .section {
   padding: 80px 60px;
   max-width: 1100px;
   margin: auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section h2 {
@@ -122,7 +160,6 @@ nav ul li a:hover {
   gap: 40px;
   justify-content: center;
 }
-
 .profile-photo {
   width: 250px;
   height: 250px;
@@ -130,11 +167,9 @@ nav ul li a:hover {
   border: 4px solid #38bdf8;
   object-fit: cover;
 }
-
 .about-text {
   max-width: 500px;
   line-height: 1.7;
-  font-size: 1em;
 }
 
 /* Skills */
@@ -144,18 +179,10 @@ nav ul li a:hover {
   gap: 30px;
   text-align: center;
 }
-
 .skill img {
   width: 70px;
-  height: 70px;
   margin-bottom: 10px;
 }
-
-.skill h3 {
-  margin-bottom: 8px;
-  color: #0f172a;
-}
-
 .bar {
   background: #e2e8f0;
   height: 10px;
@@ -163,7 +190,6 @@ nav ul li a:hover {
   overflow: hidden;
   margin: 5px 20px;
 }
-
 .fill {
   height: 10px;
   background: #38bdf8;
@@ -176,7 +202,6 @@ nav ul li a:hover {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
-
 .project-card {
   background: white;
   border-radius: 10px;
@@ -184,51 +209,21 @@ nav ul li a:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
-
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
-
 .project-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
-
 .project-info {
   padding: 20px;
 }
-
 .project-info h3 {
   color: #0f172a;
   margin-bottom: 8px;
-}
-
-.project-info span {
-  color: #555;
-  font-size: 0.9em;
-}
-
-/* Contact */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: auto;
-}
-
-.contact-form input, .contact-form textarea {
-  padding: 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  font-size: 1em;
-  resize: none;
-}
-
-.contact-form input:focus, .contact-form textarea:focus {
-  outline: 2px solid #38bdf8;
 }
 
 /* Footer */
@@ -238,4 +233,20 @@ footer {
   background: #0f172a;
   color: white;
   margin-top: 50px;
+}
+
+/* DARK MODE */
+body.dark {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+body.dark header {
+  background: rgba(15,23,42,0.95);
+}
+body.dark .section h2 {
+  color: #38bdf8;
+}
+body.dark .project-card {
+  background: #1e293b;
+  color: #e2e8f0;
 }
