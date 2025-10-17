@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zulll | Portofolio Modern</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- NAVBAR -->
   <header id="navbar">
     <h1 class="logo">Zulll<span>.</span></h1>
     <nav>
@@ -18,36 +18,41 @@
         <li><a href="#about">Tentang</a></li>
         <li><a href="#skills">Keahlian</a></li>
         <li><a href="#projects">Proyek</a></li>
-        <li><a href="#contact">Kontak</a></li>
       </ul>
     </nav>
+
+    <!-- DARK MODE TOGGLE -->
+    <div class="toggle-container">
+      <input type="checkbox" id="darkModeToggle">
+      <label for="darkModeToggle" class="toggle-label"></label>
+    </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="home" class="hero">
+  <!-- HERO -->
+  <section id="home" class="hero fade-in">
     <div class="hero-content">
       <h2>Halo, saya <span>Zulll</span></h2>
-      <p>Web Developer muda yang berfokus pada desain dan teknologi modern untuk menciptakan pengalaman digital yang interaktif.</p>
+      <p>Web Developer muda yang berfokus pada desain, interaksi, dan teknologi modern.</p>
       <button class="btn" onclick="scrollToSection('projects')">Lihat Proyek</button>
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="section">
+  <!-- ABOUT -->
+  <section id="about" class="section slide-up">
     <h2>Tentang Saya</h2>
     <div class="about-container">
       <img src="https://i.ibb.co/9WH0CjX/profile-photo.jpg" alt="Foto Profil" class="profile-photo">
       <div class="about-text">
-        <p>Saya adalah mahasiswa Informatika dengan minat besar pada pengembangan web front-end dan UI/UX. 
-          Saya senang belajar teknologi baru dan menciptakan website yang menarik, responsif, serta interaktif.
-        </p>
-        <p>📍 Berdomisili di Jakarta<br>🎓 Universitas Teknologi Nusantara</p>
+        <p>Saya mahasiswa Informatika yang bersemangat dalam dunia pengembangan web. 
+        Fokus saya adalah menciptakan website yang menarik, fungsional, dan interaktif 
+        dengan memanfaatkan teknologi modern serta desain yang responsif.</p>
+        <p>📍 Jakarta<br>🎓 Universitas Teknologi Nusantara</p>
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="section skills">
+  <section id="skills" class="section fade-in">
     <h2>Keahlian</h2>
     <div class="skills-grid">
       <div class="skill">
@@ -55,19 +60,16 @@
         <h3>HTML</h3>
         <div class="bar"><div class="fill" style="width: 95%"></div></div>
       </div>
-
       <div class="skill">
         <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS Icon">
         <h3>CSS</h3>
         <div class="bar"><div class="fill" style="width: 90%"></div></div>
       </div>
-
       <div class="skill">
         <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript Icon">
         <h3>JavaScript</h3>
         <div class="bar"><div class="fill" style="width: 85%"></div></div>
       </div>
-
       <div class="skill">
         <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="React Icon">
         <h3>React.js</h3>
@@ -77,10 +79,10 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section projects">
+  <section id="projects" class="section slide-up">
     <h2>Proyek Saya</h2>
     <div class="project-grid">
-      <div class="project-card">
+      <div class="project-card fade-in">
         <img src="https://source.unsplash.com/600x400/?website,design" alt="Project 1">
         <div class="project-info">
           <h3>CampusConnect</h3>
@@ -89,7 +91,7 @@
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card fade-in">
         <img src="https://source.unsplash.com/600x400/?dashboard,analytics" alt="Project 2">
         <div class="project-info">
           <h3>Foodly Dashboard</h3>
@@ -98,17 +100,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section contact">
-    <h2>Hubungi Saya</h2>
-    <form class="contact-form" onsubmit="sendMessage(event)">
-      <input type="text" id="name" placeholder="Nama Anda" required>
-      <input type="email" id="email" placeholder="Email Anda" required>
-      <textarea id="message" rows="4" placeholder="Pesan..." required></textarea>
-      <button type="submit" class="btn">Kirim Pesan</button>
-    </form>
   </section>
 
   <!-- FOOTER -->
