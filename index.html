@@ -3,101 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Kreatif - Zulfikar Iskandar Zulkarnaen</title>
+  <title>Zulll | Portofolio Modern</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <h1>Portofolio | Zulfikar Iskandar Zulkarnaen</h1>
+  <!-- HEADER -->
+  <header id="navbar">
+    <h1 class="logo">Zulll<span>.</span></h1>
     <nav>
-      <a href="#profil">Profil</a>
-      <a href="#pendidikan">Pendidikan</a>
-      <a href="#organisasi">Organisasi</a>
-      <a href="#portofolio">Portofolio</a>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#skills">Keahlian</a></li>
+        <li><a href="#projects">Proyek</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section id="profil">
-    <h2>Profil</h2>
-    <div class="profile">
-      <img src="https://i.pravatar.cc/180?img=5" alt="Foto Profil">
-      <div class="profile-info">
-        <h3>Zulll</h3>
-        <p>Mahasiswa Informatika yang antusias mempelajari pengembangan web modern, UI/UX, dan teknologi kreatif.</p>
-        <p><strong>Email:</strong> zulll@example.com</p>
-        <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/zulll</a></p>
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Halo, saya <span>Zulll</span></h2>
+      <p>Web Developer muda yang berfokus pada desain dan teknologi modern untuk menciptakan pengalaman digital yang interaktif.</p>
+      <button class="btn" onclick="scrollToSection('projects')">Lihat Proyek</button>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <h2>Tentang Saya</h2>
+    <div class="about-container">
+      <img src="https://i.ibb.co/9WH0CjX/profile-photo.jpg" alt="Foto Profil" class="profile-photo">
+      <div class="about-text">
+        <p>Saya adalah mahasiswa Informatika dengan minat besar pada pengembangan web front-end dan UI/UX. 
+          Saya senang belajar teknologi baru dan menciptakan website yang menarik, responsif, serta interaktif.
+        </p>
+        <p>📍 Berdomisili di Jakarta<br>🎓 Universitas Teknologi Nusantara</p>
       </div>
     </div>
   </section>
 
-  <section id="pendidikan">
-    <h2>Pendidikan</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h4>Universitas Teknologi Nusantara</h4>
-        <span>2022 - Sekarang | S1 Informatika</span>
-        <p>Fokus pada pengembangan web, desain antarmuka, dan pemrograman JavaScript modern.</p>
+  <!-- SKILLS -->
+  <section id="skills" class="section skills">
+    <h2>Keahlian</h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML Icon">
+        <h3>HTML</h3>
+        <div class="bar"><div class="fill" style="width: 95%"></div></div>
+      </div>
+
+      <div class="skill">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS Icon">
+        <h3>CSS</h3>
+        <div class="bar"><div class="fill" style="width: 90%"></div></div>
+      </div>
+
+      <div class="skill">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript Icon">
+        <h3>JavaScript</h3>
+        <div class="bar"><div class="fill" style="width: 85%"></div></div>
+      </div>
+
+      <div class="skill">
+        <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="React Icon">
+        <h3>React.js</h3>
+        <div class="bar"><div class="fill" style="width: 80%"></div></div>
       </div>
     </div>
   </section>
 
-  <section id="organisasi">
-    <h2>Pengalaman Organisasi</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h4>Himpunan Mahasiswa Informatika (HIMATIF)</h4>
-        <span>2023 - Sekarang | Divisi Web & Multimedia</span>
-        <p>Bertanggung jawab dalam pembuatan website acara kampus dan desain digital untuk promosi kegiatan.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="portofolio">
-    <h2>Portofolio</h2>
-    <div class="portfolio-grid">
-      <div class="card" onclick="openModal(1)">
-        <img src="https://source.unsplash.com/600x400/?website,app" alt="Project 1">
-        <div class="card-content">
-          <h4>CampusConnect</h4>
-          <p>Aplikasi web komunitas mahasiswa dengan fitur forum dan pengumuman.</p>
+  <!-- PROJECTS -->
+  <section id="projects" class="section projects">
+    <h2>Proyek Saya</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://source.unsplash.com/600x400/?website,design" alt="Project 1">
+        <div class="project-info">
+          <h3>CampusConnect</h3>
+          <p>Aplikasi komunitas mahasiswa untuk berbagi informasi dan forum online.</p>
+          <span>Tech: HTML, CSS, JS, PHP</span>
         </div>
       </div>
 
-      <div class="card" onclick="openModal(2)">
-        <img src="https://source.unsplash.com/600x400/?dashboard,code" alt="Project 2">
-        <div class="card-content">
-          <h4>Foodly Dashboard</h4>
-          <p>Website dashboard manajemen restoran berbasis React.js dan Firebase.</p>
+      <div class="project-card">
+        <img src="https://source.unsplash.com/600x400/?dashboard,analytics" alt="Project 2">
+        <div class="project-info">
+          <h3>Foodly Dashboard</h3>
+          <p>Dashboard restoran untuk monitoring pesanan dan penjualan secara real-time.</p>
+          <span>Tech: React.js, Firebase, Tailwind CSS</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Modal 1 -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal(1)">&times;</span>
-      <h3>CampusConnect</h3>
-      <img src="https://source.unsplash.com/600x400/?college,community" alt="CampusConnect" style="width:100%; border-radius:8px;">
-      <p style="margin-top:15px;">Platform komunitas mahasiswa untuk berbagi informasi, berdiskusi, dan kolaborasi antar jurusan.</p>
-      <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
-    </div>
-  </div>
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <h2>Hubungi Saya</h2>
+    <form class="contact-form" onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="Nama Anda" required>
+      <input type="email" id="email" placeholder="Email Anda" required>
+      <textarea id="message" rows="4" placeholder="Pesan..." required></textarea>
+      <button type="submit" class="btn">Kirim Pesan</button>
+    </form>
+  </section>
 
-  <!-- Modal 2 -->
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal(2)">&times;</span>
-      <h3>Foodly Dashboard</h3>
-      <img src="https://source.unsplash.com/600x400/?restaurant,analytics" alt="Foodly Dashboard" style="width:100%; border-radius:8px;">
-      <p style="margin-top:15px;">Dashboard interaktif untuk pemilik restoran agar dapat memantau penjualan dan pesanan secara real-time.</p>
-      <p><strong>Tech Stack:</strong> React.js, Tailwind CSS, Firebase</p>
-    </div>
-  </div>
-
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Zulll — Dibuat dengan ❤️ untuk keperluan magang web development</p>
+    <p>© 2025 Zulll — Dibuat dengan ❤️ menggunakan HTML, CSS, dan JavaScript</p>
   </footer>
 
   <script src="script.js"></script>
