@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Saya</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --primary: #00b4d8;
+  --secondary: #6c63ff;
+  --bg1: #0b132b;
+  --bg2: #1c2541;
+  --text: #e0e8f9;
+  --muted: #a5b1d8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+  background: radial-gradient(circle at 20% 20%, #1c2541, #0b132b);
+  position: relative;
+}
+
+/* ===== Background Particle ===== */
+canvas#bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
+}
+
+/* ===== Header ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: rgba(11, 19, 43, 0.7);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header h1 { font-size: 22px; color: var(--primary); font-weight: 700; }
+nav a {
+  color: var(--muted);
+  margin-left: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+nav a:hover { color: var(--text); }
+
+/* ===== Hero ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 80px 8%;
+}
+.hero img {
+  width: 260px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 40px rgba(108,99,255,0.3);
+  transition: 0.5s;
+}
+.hero img:hover { transform: scale(1.05); }
+.hero-text { max-width: 600px; }
+.hero-text h2 { font-size: 36px; color: #fff; margin-bottom: 10px; }
+.hero-text p { color: var(--muted); line-height: 1.7; }
+
+/* ===== Section Style ===== */
+section { padding: 70px 8%; position: relative; opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+section.show { opacity: 1; transform: translateY(0); }
+section h2 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+}
+section h2::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background: var(--secondary);
+  bottom: -8px;
+  left: 0;
+}
+
+/* ===== About ===== */
+.about p { color: var(--muted); max-width: 800px; line-height: 1.7; }
+
+/* ===== Hobi ===== */
+.hobby-box {
+  background: rgba(255,255,255,0.06);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 320px;
+  margin-top: 20px;
+}
+.hobby-box i {
+  font-size: 40px;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+/* ===== Projek ===== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 20px;
+}
+.project {
+  background: rgba(255,255,255,0.06);
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.4s;
+}
+.project:hover { background: rgba(255,255,255,0.1); transform: translateY(-6px); }
+.project h3 { color: #fff; margin-bottom: 10px; }
+.project p { color: var(--muted); font-size: 14px; }
+
+/* ===== Keahlian ===== */
+.skill-box { max-width: 600px; }
+.skill { margin-bottom: 15px; }
+.skill span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--muted);
+}
+.bar {
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  width: 0;
+  border-radius: 10px;
+  transition: width 2s ease;
+}
+
+/* ===== Sertifikat ===== */
+.certificates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.certificate img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  border: 3px solid rgba(255,255,255,0.1);
+  transition: transform 0.4s ease;
+}
+.certificate img:hover { transform: scale(1.05); }
+
+/* ===== Pendidikan ===== */
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.education div {
+  background: rgba(255,255,255,0.07);
+  padding: 14px;
+  border-radius: 10px;
+  color: var(--muted);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  background: rgba(255,255,255,0.03);
+}
+
+@media (max-width: 768px) {
+  .hero { flex-direction: column-reverse; text-align: center; }
+  .hero img { margin-bottom: 25px; }
+}
+</style>
+</head>
+
+<body>
+<canvas id="bgCanvas"></canvas>
+
+<header>
+  <h1>Zulfikar Iskandar Zulkarnaen</h1>
+  <nav>
+    <a href="#about">Tentang</a>
+    <a href="#hobby">Hobi</a>
+    <a href="#certificates">Sertifikat</a>
+    <a href="#education">Pendidikan</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>Halo, Saya <span style="color:var(--primary)">Zulfikar Iskandar Zulkarnaen</span></h2>
+    <p>Saya seorang Junior Web Developer yang fokus pada desain interaktif dan pengalaman pengguna modern. Saya suka mengubah ide menjadi tampilan web yang hidup dan menarik.</p>
+  </div>
+  <img src="poto.jpg" alt="Foto Profil">
+</section>
+
+<section id="about" class="about">
+  <h2>Tentang Saya</h2>
+  <p>Perkenalkan, nama saya Zulfikar Iskandar Zulkarnaen, saya adalah pelajar SMK Informatika Utama dengan jurusan Rekayasa Perangkat Lunak (RPL). Saya tertarik di bidang pengembangan web karena saya senang belajar tentang coding dan hal-hal baru yang berkaitan dengan teknologi. Saya berusaha untuk terus berkembang dan mengasah kemampuan saya agar bisa menjadi seseorang yang bermanfaat dan mampu berkontribusi di dunia kerja.
+</p>
+</section>
+
+<section id="hobby">
+  <h2>Hobi</h2>
+  <div class="hobby-box">
+    <i class="fa-solid fa-paintbrush"></i>
+    <p>Saya suka <strong>menggambar</strong> 🎨 karena dapat menyalurkan ide dan imajinasi ke dalam bentuk visual yang menarik dan inspiratif.</p>
+  </div>
+</section>
+
+<section id="certificates">
+  <h2>Projek Saya</h2>
+  <div class="certificates">
+    <div class="certificate"><img src="fomlogin.png" alt="Projek 1"></div>
+    <div class="certificate"><img src="portofolio.png" alt="Projek 2"></div>
+  </div>
+</section>
+
+<section id="certificates">
+  <h2>Sertifikat</h2>
+  <div class="certificates">
+    <div class="certificate"><img src="sertifikat_html.jpg" alt="Sertifikat 1"></div>
+    <div class="certificate"><img src="sertifikat_css.jpg" alt="Sertifikat 2"></div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Pendidikan</h2>
+  <div class="education">
+    <div><strong>S1 Teknik Informatika</strong><br>Universitas Contoh (2018 - 2022)</div>
+    <div><strong>SMK Rekayasa Perangkat Lunak</strong><br>SMK Contoh (2015 - 2018)</div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Zulfikar Iskandar Zulkarnaen
+</footer>
+
+<script>
+// ===== Background Particles =====
+const canvas = document.getElementById("bgCanvas");
+const ctx = canvas.getContext("2d");
+let particles = [];
+let w, h;
+
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 2 + 1,
+    dx: (Math.random() - 0.5) * 0.8,
+    dy: (Math.random() - 0.5) * 0.8,
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = "rgba(255,255,255,0.5)";
+  for (let p of particles) {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+    p.x += p.dx;
+    p.y += p.dy;
+    if (p.x < 0 || p.x > w) p.dx *= -1;
+    if (p.y < 0 || p.y > h) p.dy *= -1;
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+// ===== Animate Skill Bars =====
+const bars = document.querySelectorAll('.bar-fill');
+window.addEventListener('scroll', () => {
+  bars.forEach(bar => {
+    const rect = bar.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      bar.style.width = bar.dataset.skill + '%';
+    }
+  });
+});
+
+// ===== Scroll Reveal Animation =====
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      sec.classList.add('show');
+    }
+  });
+});
+
+// Tahun otomatis
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
